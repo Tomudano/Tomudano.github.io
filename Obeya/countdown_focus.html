@@ -1,0 +1,64 @@
+
+
+
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+p {
+font-family:  arial, sans-serif;
+  text-align: center;
+  font-size: 24px;
+  margin-top: 0px;
+    color: #BE1E74;
+}
+
+
+</style>
+</head>
+<body>
+
+<p id="check_count"></p>
+
+<br>
+
+
+<script>
+
+var end = Date.now() + 422000;
+
+        function prependZero(number) {
+            if (number <= 9)
+                return "0" + number;
+            else
+                return number;
+        }
+
+var x = setInterval(function() {
+
+      var start = Date.now();
+
+      var countDown = end - start
+
+        var mins = Math.floor((countDown % (1000 * 60 * 60)) / (1000 * 60));
+        var secs = Math.floor((countDown % (1000 * 60)) / 1000);
+
+          document.getElementById("check_count").innerHTML = 
+        prependZero(mins) + " : " + prependZero(secs);
+        
+          if (countDown < 0) {
+    clearInterval(x);
+    document.getElementById("check_count").innerHTML = "Move to next section";
+  }
+        
+
+}, 1000);
+
+</script>
+
+</body>
+</html>
